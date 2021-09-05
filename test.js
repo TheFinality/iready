@@ -259,7 +259,7 @@ function hidesurge() {
 }
 
 function alert(text) {
-	Swal.fire(text)
+	Swal.fire('Success', text, 'success')
 }
 
 
