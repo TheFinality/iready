@@ -39,4 +39,6 @@ fetch("https://login.i-ready.com/student/lesson/componentCompleted", {
   alert('3');
   
   
-} else return alert('Your choice must be 1, 2, or 3!');
+} else {
+alert('your choice must be 1, 2, or 3!')
+}
