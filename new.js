@@ -5,18 +5,12 @@ swal(text)
 var thingy = prompt("What do you want to do? \n 1 = pass lesson | 2 = start minute farming | 3 = end minute farming");
 var thing = parseInt(thingy);
 if (thing === 1) {
-  var csid;
+  
+   
+var csid;
 var score = "{\"score\":100}";
 
-//close reading lesson
-if (document.getElementsByTagName("iframe")[0].id == "closereading_lesson") {
-	csid = closereading_lesson.src.split("?csid=")[1].split("#")[0];
-
-	closereading_lesson.contentDocument.getElementsByClassName("button fa fa-play pulse")[0].click();
-} else // normal lesson
-{
 	csid = html5Iframe.src.split("?csid=")[1].split("&type")[0];
-}
 
 // tricks server into thinking specific lesson was completed
 fetch("https://login.i-ready.com/student/lesson/componentCompleted", {
@@ -36,7 +30,6 @@ fetch("https://login.i-ready.com/student/lesson/componentCompleted", {
 	"mode": "cors",
 	"credentials": "include"
 });
-alert('Lesson passed! Close the lesson to see changes.')
   
 } else if (thing === 2) {
   alert('2');
