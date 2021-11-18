@@ -29,6 +29,7 @@ fetch("https://login.i-ready.com/student/lesson/componentCompleted", {
 });
   
 } else if (thing === 2) {
+	if (!minuteFarming) {
  if (!!window["html5Iframe"]) {
 			// gets lesson data
 			var csid = html5Iframe.src.split("?csid=")[1].split("&type")[0];
@@ -68,9 +69,11 @@ fetch("https://login.i-ready.com/student/lesson/componentCompleted", {
 
 			alert("The minute farming process has now begun. Do not close this page. Do not turn off your computer. After you press \"ok,\" every minute that passes will be added to your account. When you want to stop the timer and add the farmed minutes to your account, press the button labeled \"Stop farming minutes\". Press \"ok\" to begin.");
 		}
+	} else alert('you are already minute farming.')
   
   
 } else if (thing === 3) {
+	if (minutesFarming) {
   csid = getCookie("csid");
 
 		// sends fetch request to stop timer and update time
@@ -94,7 +97,8 @@ fetch("https://login.i-ready.com/student/lesson/componentCompleted", {
 		document.cookie = `csid=; expires=Thu, 18 Dec 1970 12:00:00 UTC"`;
 		minuteFarming = false;
 
-		alert("The minutes should now be in your account.");
+		alert("The minutes should now be in your account."); 
+	} else alert('you need to start minute farming first.')
   
   
 } else {
