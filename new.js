@@ -71,7 +71,30 @@ fetch("https://login.i-ready.com/student/lesson/componentCompleted", {
   
   
 } else if (thing === 3) {
-  alert('3');
+  csid = getCookie("csid");
+
+		// sends fetch request to stop timer and update time
+		fetch(`https://login.i-ready.com/student/v1/web/lesson_component/${csid}?action=pause`, {
+			"headers": {
+				"accept": "application/json, text/plain, */*",
+				"accept-language": "en-US,en;q=0.9",
+				"sec-fetch-dest": "empty",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-origin"
+			},
+			"referrer": "https://login.i-ready.com/student/dashboard/home",
+			"referrerPolicy": "strict-origin-when-cross-origin",
+			"body": null,
+			"method": "GET",
+			"mode": "cors",
+			"credentials": "include"
+		});
+
+		// resets some variables
+		document.cookie = `csid=; expires=Thu, 18 Dec 1970 12:00:00 UTC"`;
+		minuteFarming = false;
+
+		alert("The minutes should now be in your account.");
   
   
 } else {
